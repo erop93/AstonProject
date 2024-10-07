@@ -1,4 +1,5 @@
 import java.util.Comparator;
+import java.util.Objects;
 
 /**
  * Класс реализует быструю сортировку для класса MyArrayList с помощью Comparator.
@@ -13,6 +14,7 @@ public class QuickSort {
      * @param <T> - тип элементов, которые будут в списке list.
      */
     public static <T> void quickSort(MyArrayList<T> list, Comparator<? super T> comparator) {
+        Objects.requireNonNull(comparator);
         quickSort(list, 0, list.getSize() - 1, comparator);
     }
 

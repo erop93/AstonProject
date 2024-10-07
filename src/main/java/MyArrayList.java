@@ -37,6 +37,7 @@ public class MyArrayList<E> {
 
     /**
      * Метод добавляет элемент в конкретное место в массиве.
+     * @throws IndexOutOfBoundsException если переданные номер не входит в границы списка.
      * Перед добавлением происходит проверка массива на свободные места.
      * Если количество элементов в массиве равно его вместимости, массив увеличивается в 1,5 раза.
      * Все элемент массива, начиная с index, смещаются на 1 ячейку в сторону.
@@ -45,6 +46,9 @@ public class MyArrayList<E> {
      * @param element - элемент для добавления в список
      */
     public void addElementByIndex(int index, Object element) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
         if (size == array.length) {
             enlargeArray();
         }
